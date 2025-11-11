@@ -1,0 +1,24 @@
+#include <MD_MAX72xx.h>
+
+#define HARDWARE_TYPE MD_MAX72XX::FC16_HW  // Use FC16_HW for common 8x8 modules
+#define MAX_DEVICES 4                      // Number of 8x8 blocks
+#define CS_PIN 3                           // Chip Select pin
+
+MD_MAX72XX ledMatrix = MD_MAX72XX(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
+
+void setup() {
+  ledMatrix.begin();
+  ledMatrix.control(MD_MAX72XX::INTENSITY, 15);  // Max brightness
+  ledMatrix.clear();
+
+  // Light every pixel across all modules
+  for (uint8_t module = 0; module < MAX_DEVICES; module++) {
+    for (uint8_t col = 0; col < 8; col++) {
+      ledMatrix.setColumn(module * 8 + col, 0xFF);  // All 8 bits ON in each column
+    }
+  }
+}
+
+void loop() {
+  // Nothing needed here
+}

@@ -1,0 +1,26 @@
+#include <MD_Parola.h>
+#include <MD_MAX72xx.h>
+
+// Hardware configuration
+#define HARDWARE_TYPE MD_MAX72XX::FC16_HW  // Use FC16_HW for common 8x8 modules
+#define MAX_DEVICES 4                      // Number of 8x8 blocks
+#define CS_PIN 3                           // Chip Select pin
+
+// Create the LED matrix object
+MD_Parola ledMatrix = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
+
+void setup() {
+  ledMatrix.begin();                                // Initialize the matrix
+  ledMatrix.setIntensity(10);                       // Brightness (0–15)
+  ledMatrix.displayClear();                         // Clear display
+
+  // Set up scrolling parameters
+  ledMatrix.displayScroll("Hello, Arduino!", PA_CENTER, PA_SCROLL_LEFT, 100);
+}
+
+void loop() {
+  // Animate scrolling
+  if (ledMatrix.displayAnimate()) {
+    ledMatrix.displayReset();  // Restart scroll when done
+  }
+}
