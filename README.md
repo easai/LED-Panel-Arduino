@@ -1,4 +1,6 @@
-# LED Matrix Error Display
+# LED Matrix Display
+
+<img src="https://raw.githubusercontent.com/easai/LED-Panel-Arduino/main/led-panel.png" alt="LED Matrix Display" width="300">
 
 This project displays the message "Error!!!" on a 4‑module MAX7219-based LED matrix display controled by an Arduino Uno using MD_Parola and MD_MAX72XX libraries.  
 
