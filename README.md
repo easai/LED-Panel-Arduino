@@ -65,6 +65,12 @@ This project displays the message "Error!!!" on a 4‑module MAX7219-based LED m
 
 ---
 
+## Hardware Test Overview
+
+This project includes a hardware verification routine for a four‑module MAX7219 LED matrix driven by the MD_MAX72XX library. The test confirms that the device initializes correctly and that all display columns can be written and read without error.
+
+---
+
 ## License
 
 This project is released under the MIT License.  
